@@ -1,8 +1,10 @@
-import { Component, ViewChild, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { RootStoreState, UserAddressStoreSelectors } from '@leng2/address-book/data-access';
 
@@ -14,18 +16,20 @@ import { UserAddress } from '@leng2/address-book/utilities';
     styleUrls: ['./users-list.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UsersListComponent implements AfterViewInit {
-    displayedColumns: string[] = ['index', 'name', 'address'];
+export class UsersListComponent implements AfterViewInit, OnDestroy {
+    displayedColumns: string[] = ['index', 'name', 'address', 'todos'];
     dataSource: MatTableDataSource<UserAddress>;
     isLargeScreen: Boolean;
+    private subscription1: Subscription;
+    private subscription2: Subscription;
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
-    constructor(private cdRef: ChangeDetectorRef, private breakpointObserver: BreakpointObserver, private store$: Store<RootStoreState.RootState>) { }
+    constructor(private cdRef: ChangeDetectorRef, private breakpointObserver: BreakpointObserver, private store$: Store<RootStoreState.RootState>, private router: Router) { }
 
     ngAfterViewInit() {
         this.cdRef.detectChanges(); //eliminate error: Expression has changed after it was checked
-        this.store$.select(
+        this.subscription1 = this.store$.select(
             UserAddressStoreSelectors.selectAllUserAddresses
         ).subscribe(result => {
             // console.log(result); //result is not wrapped with entity id!
@@ -33,7 +37,7 @@ export class UsersListComponent implements AfterViewInit {
             this.dataSource.paginator = this.paginator;
         });
 
-        this.breakpointObserver.observe([
+        this.subscription2 = this.breakpointObserver.observe([
             '(min-width: 600px)'
         ]).subscribe(result => {
             this.isLargeScreen = result.matches;
@@ -66,4 +70,13 @@ export class UsersListComponent implements AfterViewInit {
         }
     }
 
+    redirectToTodos(id: string) {
+        this.router.navigate([`person/${id}/todos`]);
+        // alternative way instead of using directive: (click)="redirectToTodos(element.id); $event.stopPropagation()"
+    }
+
+    ngOnDestroy() {
+        this.subscription1.unsubscribe();
+        this.subscription2.unsubscribe();
+    }
 }

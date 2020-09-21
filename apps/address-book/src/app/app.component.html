@@ -5,16 +5,23 @@
         </mat-sidenav>
         <mat-sidenav-content fxLayout="column" fxLayoutGap="0px" fxLayoutGap.gt-sm="20px">
             <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
-            <mat-spinner fxFlexAlign="center" *ngIf="isLoading$ | async"></mat-spinner>
+            <mat-progress-bar *ngIf="isLoading$ | async" mode="indeterminate" color="warn"
+                style="position: absolute; top: 0; z-index: 5000;">
+            </mat-progress-bar>
             <section *ngIf="error$ | async" fxLayout="column" fxLayoutAlign="center center">
-                <h1 mat-dialog-title>Error message</h1>
+                <h1 mat-dialog-title>Error Messages</h1>
                 <mat-dialog-content>
                     <p>{{error$ | async}}</p>
                 </mat-dialog-content>
             </section>
-            <main *ngIf="!(isLoading$ | async)">
+            <main>
                 <router-outlet></router-outlet>
             </main>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </app-layout>
+
+<!-- <mat-spinner fxFlexAlign="center" *ngIf="isLoading$ | async"></mat-spinner> -->
+<!-- <main *ngIf="!(isLoading$ | async)">
+    <router-outlet></router-outlet>
+</main> -->

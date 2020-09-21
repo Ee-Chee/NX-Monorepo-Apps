@@ -1,0 +1,42 @@
+<section fxLayout="column wrap" fxLayoutGap="20px" fxLayoutGap.lt-sm="5px">
+    <mat-card fxFlex.xs="100%" fxLayout="row wrap" fxLayoutAlign="center center">
+        <mat-card-title fxFlex="100%">Todos</mat-card-title>
+        <mat-card-content fxFlex="80%" fxFlex.xs="100%">
+            <mat-form-field fxFlex="100%" hideRequiredMarker>
+                <mat-label>What shall be done today?</mat-label>
+                <input matInput placeholder="Insert a task here" type="text" name="title" required
+                    [(ngModel)]="newTodo" #title="ngModel" />
+                <mat-error *ngIf="title.invalid">
+                    required
+                </mat-error>
+            </mat-form-field>
+            <button type="button" mat-icon-button [disabled]="title.invalid" color="primary"
+                (click)="addTodo()">
+                <mat-icon>add_task</mat-icon>
+            </button>
+        </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="100%" fxLayout="row wrap" fxLayoutAlign="center center">
+        <mat-card-title fxFlex="100%">To-do-list</mat-card-title>
+        <mat-card-content fxFlex="80%" fxFlex.xs="100%">
+            <mat-action-list>
+                <div *ngIf="todos.length==0">
+                    No task to implement at the moment.
+                </div>
+                <mat-list-item *ngFor="let todo of todos; let i = index">
+                    <span fxHide.xs>{{i+1}}. </span>
+                    <input fxFlex="100%" class="change-todo-input" placeholder="Change the task here"
+                        type="text" required [attr.value]="todo.title"
+                        (keyup)="validateTodo($event.target.value, i)" #title />
+                    <button type="button" mat-icon-button [disabled]="todo.disableUpdate" color="primary"
+                        (click)="updateTodo(title.value, i)">
+                        <mat-icon>published_with_changes</mat-icon>
+                    </button>
+                    <button type="button" mat-icon-button color="warn" (click)="deleteTodo(i)">
+                        <mat-icon>delete_forever</mat-icon>
+                    </button>
+                </mat-list-item>
+            </mat-action-list>
+        </mat-card-content>
+    </mat-card>
+</section>

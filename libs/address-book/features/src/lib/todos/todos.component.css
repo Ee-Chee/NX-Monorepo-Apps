@@ -1,0 +1,23 @@
+mat-card-title {
+    text-align: center;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(115, 241, 168);
+}
+
+.change-todo-input {
+    border: none;
+    outline: none;
+}
+
+mat-list-item:hover {
+    background-color: rgb(224, 223, 223) !important;
+}
+
+@media(max-width: 320px){
+    mat-card {
+        width: 300px;
+    }
+}

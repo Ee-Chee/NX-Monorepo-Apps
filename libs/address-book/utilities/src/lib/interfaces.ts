@@ -14,6 +14,16 @@ export interface Address {
     city: string;
 }
 
+export interface UserTodos {
+    userid: string;
+    todos: string[];
+}
+
+export interface Todo {
+    title: string;
+    disableUpdate?: boolean;
+}
+
 ///////////////Defining default values/////////////////////
 // class DefaultAddressMaker implements Address {
 //     street: string = "";

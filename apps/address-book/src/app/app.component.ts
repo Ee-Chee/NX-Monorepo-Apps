@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { RootStoreState, UserAddressStoreActions, RootStoreSelectors } from '@leng2/address-book/data-access';
+import { RootStoreState, UserAddressStoreActions, UserTodosStoreActions, RootStoreSelectors } from '@leng2/address-book/data-access';
 
 @Component({
     selector: 'app-root',
@@ -18,6 +18,10 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this.store$.dispatch(
             new UserAddressStoreActions.ReadDataAction()
+        );
+
+        this.store$.dispatch(
+            new UserTodosStoreActions.ReadDataAction()
         );
 
         this.error$ = this.store$.select(

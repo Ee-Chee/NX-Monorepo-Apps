@@ -19,6 +19,11 @@ div {
     cursor: pointer;
 }
 
+.mat-icon-button:hover {
+    background-color: #ff00ff;
+    cursor: grab;
+}
+
 @media(max-width: 599px){
     td.mat-cell {
         font-size: small;

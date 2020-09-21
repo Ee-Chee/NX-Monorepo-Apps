@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "rootDir": ".",
+        "outDir": "build",
+        "lib": [
+            "es2018",
+            "dom"
+        ],
+        "target": "es2018",
+        "moduleResolution": "node",
+        "module": "es6",
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true
+    },
+    "exclude": [
+        "node_modules",
+        "build",
+        "app",
+        "assets",
+        "environments"
+    ]
+}

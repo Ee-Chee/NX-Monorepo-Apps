@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import * as moment from 'moment'; //make date formatting easier
@@ -15,7 +15,7 @@ import { UserAddress, postcodesData, genders, validationMessages } from '@leng2/
     styleUrls: ['./user-management.component.css']
 })
 
-export class UserManagementComponent implements OnInit {
+export class UserManagementComponent implements OnInit, OnDestroy {
     minDate: Date;
     maxDate: Date;
     userDetailsForm: FormGroup;
@@ -29,6 +29,8 @@ export class UserManagementComponent implements OnInit {
     genders = genders;
     validationMessages = validationMessages;
 
+    private subscription: Subscription;
+
     constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private store$: Store<RootStoreState.RootState>) {
         const currentYear = new Date().getFullYear();
         this.minDate = new Date(currentYear - 120, 0, 1);
@@ -37,9 +39,8 @@ export class UserManagementComponent implements OnInit {
 
     ngOnInit(): void {
         this.createForm(); //form must be created first
-
         if (this.route.snapshot.paramMap.get('id')) {
-            this.store$.select(
+            this.subscription = this.store$.select(
                 UserAddressStoreSelectors.selectUserAddressById(this.route.snapshot.paramMap.get('id'))
             ).subscribe(result => {
                 if (result !== null) {
@@ -167,5 +168,11 @@ export class UserManagementComponent implements OnInit {
         this.store$.dispatch(
             new UserAddressStoreActions.DeleteUserAction({ id: this.route.snapshot.paramMap.get('id') })
         );
+    }
+
+    ngOnDestroy() {
+        if (this.route.snapshot.paramMap.get('id')) {
+            this.subscription.unsubscribe();
+        }
     }
 }

@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "id": "universal-app",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Application name to add SSR feature"
+        }
+    },
+    "required": [
+        "name"
+    ]
+}

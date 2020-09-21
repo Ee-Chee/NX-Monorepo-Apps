@@ -1,5 +1,5 @@
 <div fxLayout fxLayout="row wrap" fxLayoutAlign="center center">
-    <mat-form-field fxFlex.gt-md="50%">
+    <mat-form-field fxFlex.gt-xs="50%">
         <mat-label>Filter</mat-label>
         <input matInput (keyup)="search($event.target.value)"
             placeholder="Search by name/street/city/postcode" #input>
@@ -28,6 +28,16 @@
     <ng-container matColumnDef="address">
         <th mat-header-cell *matHeaderCellDef> Address </th>
         <td mat-cell *matCellDef="let element"> {{ element.address | transformAddress }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="todos">
+        <th mat-header-cell *matHeaderCellDef> To-dos </th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="redirectToTodos(element.id)"
+                click-stop-propagation>
+                <mat-icon class="mat-18">list_alt</mat-icon>
+            </button>
+        </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
