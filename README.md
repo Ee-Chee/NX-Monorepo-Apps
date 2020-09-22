@@ -2,11 +2,11 @@
 * This is a NX monorepo project which consists of several apps/projects in one repository.
 * These apps can be divided into two categories:
    1) Frontend
-   Angular (directory: apps/address-book): Address-book management plus a sub-app, Todos
+       - Angular (directory: apps/address-book): Address-book management plus a sub-app, Todos
    2) Backend
-   Nestjs + Sequelize.Postgresql (directory: apps/api): A RESTful API to manage the data exchange for Todos
-   Firebase - Cloud Firestore: Used to manage the data exchange for address management app
-   Nodejs + Express + Docker (directory: apps/address-book-ssr): Server Side Rendering with Angular Universal (in progress...)
+       - Nestjs + Sequelize.Postgresql (directory: apps/api): A RESTful API to manage the data exchange for Todos
+       - Firebase - Cloud Firestore: Used to manage the data exchange for address management app
+       - Nodejs + Express + Docker (directory: apps/address-book-ssr): Server Side Rendering with Angular Universal (in progress...)
 
 ## Functionalities
 * These apps enable users to register themselves by inserting their infos into a form. The registered user will be then brought to the homepage where a table list resides. Each row shows only the registered user's name and address. For more detailed infos about the user, one can click on the row and the detailed-info page is then navigated. On this page, user can check the corresponding person's infos, update or delete them from the list. 
@@ -26,35 +26,30 @@ Todos List
 
 ## Main Features
 1) User registration form
-- Reactive form
-- Create user and add user's detailed infos
-- Form validatons and customized validator for postcode
-- Date follows german format
-- The birth of date has a range of 120 years, starting from last year 
-(registered user must be at least one year old and less than 120 years old)
-- Auto-completed postcode feature, starting from second digit
-- Auto-filtered valid city-options displayed once a valid postcode is given
-
+    - Reactive form
+    - Create user and add user's detailed infos
+    - Form validatons and customized validator for postcode
+    - Date follows german format
+    - The birth of date has a range of 120 years, starting from last year 
+    (registered user must be at least one year old and less than 120 years old)
+    - Auto-completed postcode feature, starting from second digit
+    - Auto-filtered valid city-options displayed once a valid postcode is given
 2) Registed users table list
-- Read all registered users
-- Searchable keywords (case insensitive) and filtering
-- Pagination (disabled in mobile view though)
-
+    - Read all registered users
+    - Searchable keywords (case insensitive) and filtering
+    - Pagination (disabled in mobile view though)
 3) User's detailed-info page
-- Reuse the component from registration form mentioned above
-- Update or delete user actions can be done here
-
+    - Reuse the component from registration form mentioned above
+    - Update or delete user actions can be done here
 4) Todos list
-- Template driven form
-- Create, read, update and delete features
-- Input-required form validation
-
+    - Template driven form
+    - Create, read, update and delete features
+    - Input-required form validation
 5) Firestore as backend API service for address management
-
 6) Nestjs as backend API service for Todos
-- Restful API
-- Sequelize.Postgresql as database
-- Server side error handling
+    - Restful API
+    - Sequelize.Postgresql as database
+    - Server side error handling
 
 ## Additional Features
 1) Flexlayout, Angular Material, header and side navigation (responsive design)
