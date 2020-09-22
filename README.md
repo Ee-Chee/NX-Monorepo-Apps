@@ -1,13 +1,12 @@
-# NX Application - Address Book + Todos Apps
+# NX CRUD Application (Address Book + Todos Apps)
 * This is a NX monorepo project which consists of several apps/projects in one repository.
 * These apps can be divided into two categories:
-1) Frontend
-Angular (directory: apps/address-book): Address-book management plus a sub-app, Todos
-
-2) Backend
-Nestjs + Sequelize.Postgresql (directory: apps/api): A RESTful API to manage the data exchange for Todos
-Firebase - Cloud Firestore: Used to manage the data exchange for address management app
-Nodejs + Express + Docker (directory: apps/address-book-ssr): Server Side Rendering with Angular Universal (in progress...)
+   1) Frontend
+   Angular (directory: apps/address-book): Address-book management plus a sub-app, Todos
+   2) Backend
+   Nestjs + Sequelize.Postgresql (directory: apps/api): A RESTful API to manage the data exchange for Todos
+   Firebase - Cloud Firestore: Used to manage the data exchange for address management app
+   Nodejs + Express + Docker (directory: apps/address-book-ssr): Server Side Rendering with Angular Universal (in progress...)
 
 ## Functionalities
 * These apps enable users to register themselves by inserting their infos into a form. The registered user will be then brought to the homepage where a table list resides. Each row shows only the registered user's name and address. For more detailed infos about the user, one can click on the row and the detailed-info page is then navigated. On this page, user can check the corresponding person's infos, update or delete them from the list. 
@@ -75,9 +74,6 @@ Todos List
 
 **_NOTES_**:
 * Coding technologies:
-1) Frontend 
-HTML, CSS, Angular(Reactive form, Template Driven form, Angular Material, Flex-layout, Angular Universal), RxJS, NgRx
-2) Backend
-Nodejs, Nestjs, Express, Sequelize, Postgresql, Docker
-3) Third parties or common:
-NX monorepo, Firebase (Cloud Firestore), Javascript, Typescript
+   1) Frontend: HTML, CSS, Angular(Reactive form, Template Driven form, Angular Material, Flex-layout, Angular Universal), RxJS, NgRx
+   2) Backend: Nodejs, Nestjs, Express, Sequelize, Postgresql, Docker
+   3) Third parties or common: NX monorepo, Firebase (Cloud Firestore), Javascript, Typescript
