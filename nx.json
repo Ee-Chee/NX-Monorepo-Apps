@@ -1,91 +1,70 @@
 {
-  "npmScope": "leng2",
-  "affected": {
-    "defaultBase": "master"
-  },
-  "implicitDependencies": {
-    "angular.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
+    "npmScope": "leng2",
+    "affected": {
+        "defaultBase": "master"
     },
-    "tsconfig.base.json": "*",
-    "tslint.json": "*",
-    "nx.json": "*"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
+    "implicitDependencies": {
+        "angular.json": "*",
+        "package.json": {
+            "dependencies": "*",
+            "devDependencies": "*"
+        },
+        "tsconfig.base.json": "*",
+        "tslint.json": "*",
+        "nx.json": "*"
+    },
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "@nrwl/workspace/tasks-runners/default",
+            "options": {
+                "cacheableOperations": [
+                    "build",
+                    "lint",
+                    "test",
+                    "e2e"
+                ]
+            }
+        }
+    },
+    "projects": {
+        "address-book": {
+            "tags": []
+        },
+        "address-book-e2e": {
+            "tags": [],
+            "implicitDependencies": [
+                "address-book"
+            ]
+        },
+        "address-book-data-access": {
+            "tags": []
+        },
+        "address-book-features": {
+            "tags": []
+        },
+        "address-book-utilities": {
+            "tags": []
+        },
+        "address-book-ui": {
+            "tags": []
+        },
+        "shared": {
+            "tags": []
+        },
+        "address-book-ssr": {
+            "tags": []
+        },
+        "api": {
+            "tags": []
+        },
+        "api-features": {
+            "tags": []
+        },
+        "api-data-access": {
+            "tags": []
+        },
+        "api-utilities": {
+            "tags": []
+        }
     }
-  },
-  "projects": {
-    "addressbook-ui-header": {
-      "tags": []
-    },
-    "addressbook-ui-layout": {
-      "tags": []
-    },
-    "address-book": {
-      "tags": []
-    },
-    "address-book-e2e": {
-      "tags": [],
-      "implicitDependencies": ["address-book"]
-    },
-    "address-book-ui-header": {
-      "tags": []
-    },
-    "address-book-ui-layout": {
-      "tags": []
-    },
-    "address-book-ui-side-navigation": {
-      "tags": []
-    },
-    "addressbook-ui": {
-      "tags": []
-    },
-    "address-book-data-access": {
-      "tags": []
-    },
-    "address-book-features": {
-      "tags": []
-    },
-    "address-book-utilities": {
-      "tags": []
-    },
-    "address-book-ui": {
-      "tags": []
-    },
-    "shared": {
-      "tags": []
-    },
-    "address-book-ssr": {
-      "tags": []
-    },
-    "some-app": {
-      "tags": []
-    },
-    "some-app-e2e": {
-      "tags": [],
-      "implicitDependencies": ["some-app"]
-    },
-    "some-app-ssr": {
-      "tags": []
-    },
-    "api": {
-      "tags": []
-    },
-    "api-features": {
-      "tags": []
-    },
-    "api-data-access": {
-      "tags": []
-    },
-    "api-utilities": {
-      "tags": []
-    }
-  }
 }

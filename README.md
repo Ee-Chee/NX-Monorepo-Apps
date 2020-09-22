@@ -1,98 +1,83 @@
-# Leng2
+# NX Application - Address Book + Todos Apps
+* This is a NX monorepo project which consists of several apps/projects in one repository.
+* These apps can be divided into two categories:
+1) Frontend
+Angular (directory: apps/address-book): Address-book management plus a sub-app, Todos
 
-This project was generated using [Nx](https://nx.dev).
+2) Backend
+Nestjs + Sequelize.Postgresql (directory: apps/api): A RESTful API to manage the data exchange for Todos
+Firebase - Cloud Firestore: Used to manage the data exchange for address management app
+Nodejs + Express + Docker (directory: apps/address-book-ssr): Server Side Rendering with Angular Universal (in progress...)
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+## Functionalities
+* These apps enable users to register themselves by inserting their infos into a form. The registered user will be then brought to the homepage where a table list resides. Each row shows only the registered user's name and address. For more detailed infos about the user, one can click on the row and the detailed-info page is then navigated. On this page, user can check the corresponding person's infos, update or delete them from the list. 
+* In addition, there is a special To-dos column on the table. Each row/user has their own todos-list. By clicking the 'list' icon, the user's todos-list will be presented and this is where the user is able to create, read, update and delete their need-to-be-done tasks.    
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+Homepage
+<img src="/images/homepage.png">
 
-## Quick Start & Documentation
+User Registration Form
+<img src="/images/registration-form.png">
 
-[Nx Documentation](https://nx.dev/angular)
+Detailed Info Page/Form
+<img src="/images/detailed-info-page.png">
 
-[10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
+Todos List
+<img src="/images/todos-list.png">
 
-[Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
+## Main Features
+1) User registration form
+- Reactive form
+- Create user and add user's detailed infos
+- Form validatons and customized validator for postcode
+- Date follows german format
+- The birth of date has a range of 120 years, starting from last year 
+(registered user must be at least one year old and less than 120 years old)
+- Auto-completed postcode feature, starting from second digit
+- Auto-filtered valid city-options displayed once a valid postcode is given
 
-## Adding capabilities to your workspace
+2) Registed users table list
+- Read all registered users
+- Searchable keywords (case insensitive) and filtering
+- Pagination (disabled in mobile view though)
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+3) User's detailed-info page
+- Reuse the component from registration form mentioned above
+- Update or delete user actions can be done here
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+4) Todos list
+- Template driven form
+- Create, read, update and delete features
+- Input-required form validation
 
-Below are our core plugins:
+5) Firestore as backend API service for address management
 
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
+6) Nestjs as backend API service for Todos
+- Restful API
+- Sequelize.Postgresql as database
+- Server side error handling
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+## Additional Features
+1) Flexlayout, Angular Material, header and side navigation (responsive design)
+<img src="/images/responsive-list.png"> <img src="/images/responsive-menu-side-nav.png">
+2) Lazy-loaded routes (feature modules)
+3) Shared module
+4) Loading and error handling
+5) NgRx effects and entity store (feature stores)
+6) Customized directives, pipes and interfaces
 
-## Generate an application
+## Oncoming Features (Work in progress...)
+1) Server side rendering
+2) Dockerized SSR app
+3) Angular i18n Internationalization
 
-Run `ng g @nrwl/angular:app my-app` to generate an application.
+<img src="/images/structure.png">
 
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are sharable across libraries and applications. They can be imported from `@leng2/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-## ☁ Nx Cloud
-
-### Computation Memoization in the Cloud
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+**_NOTES_**:
+* Coding technologies:
+1) Frontend 
+HTML, CSS, Angular(Reactive form, Template Driven form, Angular Material, Flex-layout, Angular Universal), RxJS, NgRx
+2) Backend
+Nodejs, Nestjs, Express, Sequelize, Postgresql, Docker
+3) Third parties or common:
+NX monorepo, Firebase (Cloud Firestore), Javascript, Typescript
