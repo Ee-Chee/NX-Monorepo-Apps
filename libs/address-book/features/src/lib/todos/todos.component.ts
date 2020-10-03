@@ -24,6 +24,7 @@ export class TodosComponent implements OnInit, OnDestroy {
         ).subscribe(result => {
             // If a user surfs directly the path /<person>/hisID/todos, initially result could be null(data not yet retrieved in store). 
             // As restored, angular will run again and rerender. Console log it, two results shall be obtained:
+            // console.log("here", result);
             if (result === null) {
                 this.userTodos = null;
             } else {

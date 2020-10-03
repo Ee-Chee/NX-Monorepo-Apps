@@ -1,4 +1,4 @@
-# NX CRUD Application (Address Book + Todos Apps)
+# NX CRUD Applications (Address Book + Todos Apps)
 * This is a NX monorepo project which consists of several apps/projects in one repository.
 * These apps can be divided into two categories:
    1) Frontend
@@ -34,7 +34,7 @@ Todos List
     (registered user must be at least one year old and less than 120 years old)
     - Auto-completed postcode feature, starting from second digit
     - Auto-filtered valid city-options displayed once a valid postcode is given
-2) Registed users table list
+2) Registered users table list
     - Read all registered users
     - Searchable keywords (case insensitive) and filtering
     - Pagination (disabled in mobile view though)

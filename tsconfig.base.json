@@ -1,46 +1,66 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@leng2/address-book/ui-header": [
-        "libs/address-book/ui-header/src/index.ts"
-      ],
-      "@leng2/address-book/ui-layout": [
-        "libs/address-book/ui-layout/src/index.ts"
-      ],
-      "@leng2/address-book/ui-side-navigation": [
-        "libs/address-book/ui-side-navigation/src/index.ts"
-      ],
-      "@leng2/address-book/data-access": [
-        "libs/address-book/data-access/src/index.ts"
-      ],
-      "@leng2/address-book/features": [
-        "libs/address-book/features/src/index.ts"
-      ],
-      "@leng2/address-book/ui": ["libs/address-book/ui/src/index.ts"],
-      "@leng2/shared": ["libs/shared/src/index.ts"],
-      "@leng2/address-book/utilities": [
-        "libs/address-book/utilities/src/index.ts"
-      ],
-      "@leng2/api/features": ["libs/api/features/src/index.ts"],
-      "@leng2/api/data-access": ["libs/api/data-access/src/index.ts"],
-      "@leng2/api/utilities": ["libs/api/utilities/src/index.ts"]
-    }
-  },
-  "exclude": ["node_modules", "tmp"]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "rootDir": ".",
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "lib": [
+            "es2017",
+            "dom"
+        ],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@leng2/address-book/ui-header": [
+                "libs/address-book/ui-header/src/index.ts"
+            ],
+            "@leng2/address-book/ui-layout": [
+                "libs/address-book/ui-layout/src/index.ts"
+            ],
+            "@leng2/address-book/ui-side-navigation": [
+                "libs/address-book/ui-side-navigation/src/index.ts"
+            ],
+            "@leng2/address-book/data-access": [
+                "libs/address-book/data-access/src/index.ts"
+            ],
+            "@leng2/address-book/features": [
+                "libs/address-book/features/src/index.ts"
+            ],
+            "@leng2/address-book/ui": [
+                "libs/address-book/ui/src/index.ts"
+            ],
+            "@leng2/shared": [
+                "libs/shared/src/index.ts"
+            ],
+            "@leng2/address-book/utilities": [
+                "libs/address-book/utilities/src/index.ts"
+            ],
+            "@leng2/api/features": [
+                "libs/api/features/src/index.ts"
+            ],
+            "@leng2/api/data-access": [
+                "libs/api/data-access/src/index.ts"
+            ],
+            "@leng2/api/utilities": [
+                "libs/api/utilities/src/index.ts"
+            ]
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "tmp"
+    ]
 }

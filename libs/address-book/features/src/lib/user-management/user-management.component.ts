@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import * as moment from 'moment'; //make date formatting easier
+import moment from 'moment'; //make date formatting easier
 import { RootStoreState, UserAddressStoreActions, UserAddressStoreSelectors } from '@leng2/address-book/data-access';
 
 import { UserAddress, postcodesData, genders, validationMessages } from '@leng2/address-book/utilities';
