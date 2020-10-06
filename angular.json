@@ -68,6 +68,52 @@
                                     "maximumError": "10kb"
                                 }
                             ]
+                        },
+                        "production-de": {
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "outputPath": "dist/address-book/browser/de/",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/address-book/src/environments/environment.ts",
+                                    "with": "apps/address-book/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "baseHref": "/de/",
+                            "i18nFile": "apps/address-book/src/locale/messages.de.xlf",
+                            "i18nFormat": "xlf",
+                            "i18nLocale": "de",
+                            "i18nMissingTranslation": "error"
+                        },
+                        "production-en": {
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "outputPath": "dist/address-book/browser/en/",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/address-book/src/environments/environment.ts",
+                                    "with": "apps/address-book/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "baseHref": "/en/",
+                            "i18nFile": "apps/address-book/src/locale/messages.en.xlf",
+                            "i18nFormat": "xlf",
+                            "i18nLocale": "en",
+                            "i18nMissingTranslation": "error"
                         }
                     }
                 },
@@ -80,6 +126,12 @@
                     "configurations": {
                         "production": {
                             "browserTarget": "address-book:build:production"
+                        },
+                        "de": {
+                            "browserTarget": "address-book:build:production-de"
+                        },
+                        "en": {
+                            "browserTarget": "address-book:build:production-en"
                         }
                     }
                 },
@@ -115,7 +167,10 @@
                     "options": {
                         "outputPath": "dist/apps/address-book/server",
                         "main": "apps/address-book/src/main.server.ts",
-                        "tsConfig": "apps/address-book/tsconfig.server.json"
+                        "tsConfig": "apps/address-book/tsconfig.server.json",
+                        "externalDependencies": [
+                            "domino"
+                        ]
                     },
                     "configurations": {
                         "production": {

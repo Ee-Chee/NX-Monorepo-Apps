@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="Title" datatype="html">
+        <source>My Address Book</source>
+        <target>Mein Adressbuch</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../../libs/address-book/ui/src/lib/header/header.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="List" datatype="html">
+        <source>List</source>
+        <target>Liste</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../../libs/address-book/ui/src/lib/header/header.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Create" datatype="html">
+        <source>Create new</source>
+        <target>Anmeldung</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../../libs/address-book/ui/src/lib/header/header.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Language" datatype="html">
+        <source>DE</source>
+        <target>EN</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../../libs/address-book/ui/src/lib/header/header.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -3,6 +3,7 @@
 * These apps can be divided into two categories:
    1) Frontend
        - Angular (directory: apps/address-book): Address-book management plus a sub-app, Todos
+       - Cypress (directory: apps/address-book-e2e): e2e test on registration form
    2) Backend
        - Nestjs + Sequelize.Postgresql (directory: apps/api): A RESTful API to manage the data exchange for Todos
        - Firebase - Cloud Firestore: Used to manage the data exchange for address management app
@@ -50,6 +51,7 @@ Todos List
     - Restful API
     - Sequelize.Postgresql as database
     - Server side error handling
+7) UI e2e test on registration form
 
 ## Additional Features
 1) Flexlayout, Angular Material, header and side navigation (responsive design)
@@ -59,16 +61,16 @@ Todos List
 4) Loading and error handling
 5) NgRx effects and entity store (feature stores)
 6) Customized directives, pipes and interfaces
+7) Angular i18n Internationalization (only header)
 
 ## Oncoming Features (Work in progress...)
 1) Server side rendering
 2) Dockerized SSR app
-3) Angular i18n Internationalization
 
 <img src="/images/structure.png">
 
 **_NOTES_**:
 * Coding technologies:
-   1) Frontend: HTML, CSS, Angular(Reactive form, Template Driven form, Angular Material, Flex-layout, Angular Universal), RxJS, NgRx
+   1) Frontend: HTML, CSS, Angular(Reactive form, Template Driven form, Angular Material, Flex-layout, Angular Universal, i18n), RxJS, NgRx
    2) Backend: Nodejs, Nestjs, Express, Sequelize, Postgresql, Docker
-   3) Third parties or common: NX monorepo, Firebase (Cloud Firestore), Javascript, Typescript
+   3) Third parties or common: NX monorepo, Firebase (Cloud Firestore), Javascript, Typescript, Cypress
