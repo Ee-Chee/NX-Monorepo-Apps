@@ -14,6 +14,6 @@ export interface State extends EntityState<UserAddress> {
 export const initialState: State = userAddressesAdapter.getInitialState(
     {
         isLoading: false,
-        error: null
+        error: null // todo type
     }
 );

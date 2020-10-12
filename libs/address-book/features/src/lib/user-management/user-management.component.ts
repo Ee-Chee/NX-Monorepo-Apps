@@ -24,7 +24,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
     // disableCityControl: boolean = true;
     filteredPostcodes: Observable<string[]>;
     mappedFormObject: UserAddress;
-    toggleUpdateDelete: Boolean = false;
+    toggleUpdateDelete = false; // todo ts type
 
     genders = genders;
     validationMessages = validationMessages;
@@ -66,7 +66,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
             startWith(''),
             map(value => value.length < 2 ? [] : this.filter(value))
         );
-        //no options shown on empty input/on focus 
+        //no options shown on empty input/on focus
         //kicks in only if 2+ characters typed
         //filtering always starts at first position, index 0 of the string.
         //limits to 10 different results, no duplicates
@@ -81,7 +81,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
                 Validators.required
             ])),
             number: new FormControl('', Validators.compose([
-                Validators.pattern('^[1-9][0-9]*$'),
+                Validators.pattern('^[1-9][0-9]*$'), //todo buchstaben
                 Validators.required
             ])),
             postcode: new FormControl('', Validators.compose([

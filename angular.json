@@ -6,7 +6,6 @@
             "schematics": {},
             "root": "apps/address-book",
             "sourceRoot": "apps/address-book/src",
-            "prefix": "leng2",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
@@ -224,7 +223,6 @@
             "projectType": "library",
             "root": "libs/address-book/data-access",
             "sourceRoot": "libs/address-book/data-access/src",
-            "prefix": "leng2",
             "architect": {
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
@@ -253,7 +251,6 @@
             "projectType": "library",
             "root": "libs/address-book/features",
             "sourceRoot": "libs/address-book/features/src",
-            "prefix": "leng2",
             "architect": {
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
@@ -282,7 +279,6 @@
             "projectType": "library",
             "root": "libs/address-book/ui",
             "sourceRoot": "libs/address-book/ui/src",
-            "prefix": "leng2",
             "architect": {
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
@@ -311,7 +307,6 @@
             "projectType": "library",
             "root": "libs/shared",
             "sourceRoot": "libs/shared/src",
-            "prefix": "leng2",
             "architect": {
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",

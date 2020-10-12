@@ -20,6 +20,8 @@ export class TodosService {
     }
 
     async update(id: string, newUserTodos: CreateTodoDto) {
+        newUserTodos.userid = newUserTodos.userid || id;
+        console.log ( id,  newUserTodos );
         return await this.todosRepository.update(
             newUserTodos,
             { where: { userid: id }, returning: true }

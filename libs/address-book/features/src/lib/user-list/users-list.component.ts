@@ -10,22 +10,26 @@ import { RootStoreState, UserAddressStoreSelectors } from '@leng2/address-book/d
 
 import { UserAddress } from '@leng2/address-book/utilities';
 
+// todo warum nicht lazy
 @Component({
     selector: 'app-users-list',
     templateUrl: './users-list.component.html',
     styleUrls: ['./users-list.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush // todo sehr schön
 })
 export class UsersListComponent implements AfterViewInit, OnDestroy {
     displayedColumns: string[] = ['index', 'name', 'address', 'todos'];
     dataSource: MatTableDataSource<UserAddress>;
     isLargeScreen: Boolean;
-    private subscription1: Subscription;
+    private subscription1: Subscription; // todo nicht so elegnat
     private subscription2: Subscription;
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
-    constructor(private cdRef: ChangeDetectorRef, private breakpointObserver: BreakpointObserver, private store$: Store<RootStoreState.RootState>, private router: Router) { }
+    constructor(private cdRef: ChangeDetectorRef,
+                private breakpointObserver: BreakpointObserver,
+                private store$: Store<RootStoreState.RootState>,
+                private router: Router) { }
 
     ngAfterViewInit() {
         this.subscription1 = this.store$.select(
@@ -33,7 +37,7 @@ export class UsersListComponent implements AfterViewInit, OnDestroy {
         ).subscribe(result => {
             // console.log(result); //result is not wrapped with entity id!
             this.dataSource = new MatTableDataSource(result);
-            this.subscription2 = this.breakpointObserver.observe([
+            this.subscription2 = this.breakpointObserver.observe([ // todo unelegant
                 '(min-width: 600px)'
             ]).subscribe(breakpoint => {
                 this.isLargeScreen = breakpoint.matches;
@@ -73,7 +77,7 @@ export class UsersListComponent implements AfterViewInit, OnDestroy {
     }
 
     redirectToTodos(id: string) {
-        this.router.navigate([`person/${id}/todos`]);
+        this.router.navigate([`person/${id}/todos`]); // todo warum kein router-link
         // alternative way instead of using directive: (click)="redirectToTodos(element.id); $event.stopPropagation()"
     }
 

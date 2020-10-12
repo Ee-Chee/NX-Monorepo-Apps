@@ -2,6 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// todo kann ich die bekommen
 import * as credentials from '../../../../secrets.json';
 
 let secrets = (credentials as any).default;

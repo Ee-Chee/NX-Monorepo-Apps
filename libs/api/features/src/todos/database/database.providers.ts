@@ -11,7 +11,7 @@ export const databaseProviders = [
                 port: 5432,
                 username: 'postgres',
                 password: 'postgres',
-                database: 'address-todos',
+                database: 'address_todos',
             });
             sequelize.addModels([Todo]);
             await sequelize.sync();

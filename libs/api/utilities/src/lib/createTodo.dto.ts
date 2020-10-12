@@ -1,4 +1,4 @@
 export class CreateTodoDto {
-    readonly userid: string;
+    userid: string;
     readonly todos: string[];
 }

@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Patch, Delete, Param, Body, Response, HttpStatus, HttpException } from '@nestjs/common';
 import { TodosService } from '../services/todos.service';
-//global prefix 'api' is defined in main.ts, api app 
-//prefix 'todos' defined here 
+//global prefix 'api' is defined in main.ts, api app
+//prefix 'todos' defined here
 @Controller('todos')
 export class TodosController {
     constructor(private readonly todosService: TodosService) { }

@@ -22,13 +22,13 @@ export class TodosComponent implements OnInit, OnDestroy {
         this.subscription = this.store$.select(
             UserTodosStoreSelectors.selectUserTodosById(this.route.snapshot.paramMap.get('id'))
         ).subscribe(result => {
-            // If a user surfs directly the path /<person>/hisID/todos, initially result could be null(data not yet retrieved in store). 
+            // If a user surfs directly the path /<person>/hisID/todos, initially result could be null(data not yet retrieved in store).
             // As restored, angular will run again and rerender. Console log it, two results shall be obtained:
             // console.log("here", result);
             if (result === null) {
                 this.userTodos = null;
             } else {
-                // this.userTodos = result; 
+                // this.userTodos = result;
                 //Wrong! Data retrieved from store is immutable and readonly. Use this:
                 this.userTodos = { ...result };
                 this.userTodos.todos = [...result.todos]; //nested array or object too
@@ -56,7 +56,7 @@ export class TodosComponent implements OnInit, OnDestroy {
     }
 
     validateTodo(value: string, index: number) {
-        if (value == "") {
+        if (value == "") { // todo auf linter achten
             this.todos[index].disableUpdate = true;
         } else {
             this.todos[index].disableUpdate = false;

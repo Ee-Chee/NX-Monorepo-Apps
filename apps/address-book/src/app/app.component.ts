@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
     constructor(private store$: Store<RootStoreState.RootState>) { }
 
     ngOnInit() {
+        // todo app init
         this.store$.dispatch(
             new UserAddressStoreActions.ReadDataAction()
         );
