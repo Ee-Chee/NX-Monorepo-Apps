@@ -74,3 +74,6 @@ Todos List
    1) Frontend: HTML, CSS, Angular(Reactive form, Template Driven form, Angular Material, Flex-layout, Angular Universal, i18n), RxJS, NgRx
    2) Backend: Nodejs, Nestjs, Express, Sequelize, Postgresql, Docker
    3) Third parties or common: NX monorepo, Firebase (Cloud Firestore), Javascript, Typescript, Cypress
+
+*ng serve api (not wsl)
+*ng serve address-book (not wsl)

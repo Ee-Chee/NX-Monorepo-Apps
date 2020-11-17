@@ -56,7 +56,7 @@ export class TodosComponent implements OnInit, OnDestroy {
     }
 
     validateTodo(value: string, index: number) {
-        if (value == "") {
+        if (value === "") {
             this.todos[index].disableUpdate = true;
         } else {
             this.todos[index].disableUpdate = false;

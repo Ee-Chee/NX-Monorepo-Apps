@@ -20,20 +20,24 @@ export class UsersListComponent implements AfterViewInit, OnDestroy {
     displayedColumns: string[] = ['index', 'name', 'address', 'todos'];
     dataSource: MatTableDataSource<UserAddress>;
     isLargeScreen: Boolean;
-    private subscription1: Subscription;
-    private subscription2: Subscription;
+    private selectAllUserAddressesSub: Subscription;
+    private breakPointObserverSub: Subscription;
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
-    constructor(private cdRef: ChangeDetectorRef, private breakpointObserver: BreakpointObserver, private store$: Store<RootStoreState.RootState>, private router: Router) { }
+    constructor(
+        private cdRef: ChangeDetectorRef,
+        private breakpointObserver: BreakpointObserver,
+        private store$: Store<RootStoreState.RootState>,
+        private router: Router) { }
 
     ngAfterViewInit() {
-        this.subscription1 = this.store$.select(
+        this.selectAllUserAddressesSub = this.store$.select(
             UserAddressStoreSelectors.selectAllUserAddresses
         ).subscribe(result => {
             // console.log(result); //result is not wrapped with entity id!
             this.dataSource = new MatTableDataSource(result);
-            this.subscription2 = this.breakpointObserver.observe([
+            this.breakPointObserverSub = this.breakpointObserver.observe([
                 '(min-width: 600px)'
             ]).subscribe(breakpoint => {
                 this.isLargeScreen = breakpoint.matches;
@@ -72,13 +76,13 @@ export class UsersListComponent implements AfterViewInit, OnDestroy {
         }
     }
 
-    redirectToTodos(id: string) {
-        this.router.navigate([`person/${id}/todos`]);
-        // alternative way instead of using directive: (click)="redirectToTodos(element.id); $event.stopPropagation()"
-    }
+    // redirectToTodos(id: string) {
+    //     this.router.navigate([`person/${id}/todos`]);
+    //     // alternative way instead of using directive: (click)="redirectToTodos(element.id); $event.stopPropagation()"
+    // }
 
     ngOnDestroy() {
-        this.subscription1.unsubscribe();
-        this.subscription2.unsubscribe();
+        this.selectAllUserAddressesSub.unsubscribe();
+        this.breakPointObserverSub.unsubscribe();
     }
 }

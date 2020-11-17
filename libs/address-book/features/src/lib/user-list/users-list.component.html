@@ -33,12 +33,13 @@
     <ng-container matColumnDef="todos">
         <th mat-header-cell *matHeaderCellDef> To-dos </th>
         <td mat-cell *matCellDef="let element">
-            <button mat-icon-button color="primary" (click)="redirectToTodos(element.id)"
+            <button mat-icon-button color="primary" [routerLink]="'/person/'+ element.id + '/todos'"
                 click-stop-propagation>
                 <mat-icon class="mat-18">list_alt</mat-icon>
             </button>
         </td>
     </ng-container>
+    <!-- (click)="redirectToTodos(element.id)" -->
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="row-link"

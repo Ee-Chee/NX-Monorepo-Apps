@@ -24,7 +24,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
     // disableCityControl: boolean = true;
     filteredPostcodes: Observable<string[]>;
     mappedFormObject: UserAddress;
-    toggleUpdateDelete: Boolean = false;
+    toggleUpdateDelete = false;
 
     genders = genders;
     validationMessages = validationMessages;
